@@ -97,4 +97,27 @@ def get_dictionary(dictionary_file):
     """
     with open(dictionary_file) as f:
         return [w.strip().upper() for w in f]
+        
+def main():
+    
+    """
+    This is the function that will run the whole project
+    """
+    
+    grid = make_grid(3, 3)
+    dictionary = get_dictionary('words.txt')
+    words = search(grid, dictionary)
+    for word in words:
+        print(word)
+    print("Found %s words" % len(words))
+    
+# This line of code to the bottom of boggle.py that execute
+# the boggle solver that line of code should only be run when we actually run
+# boggle.py from the command line it should be ignored if we're simply
+# importing boggle.py into another file. Without this if function, 
+# we would not be able to run our unittests as the file boggle.py
+# would be imported and fully executed in test_boggle.py.
+
+if __name__ == "__main__":
+    main()
     
